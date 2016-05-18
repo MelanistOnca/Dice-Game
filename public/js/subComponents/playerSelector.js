@@ -6,28 +6,19 @@ import $ from 'jquery';
 
 // "Uncaught TypeError: node.getBoundingClientRect is not a function" seems to be an open issue, https://github.com/facebook/react-devtools/issues/362
 export default class PlayerSelector extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      selectedValue: "1"
-    }
+  //previously tried to handle state change here, which was bad. state change handling moved to site.js with "this" binding and update function
 
-    // binding 'this' to give correct context
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event){
-    this.setState({selectedValue: event.target.value})
-
-  }
-
+  // had
+  // ref = "playerSelection"
+  // inside <select> but don't think i needed it? keeping here in case funny business happens and i did need it
   render() {
-
+    console.log(this.props,'was this.props in render, before return');
     return(
       <div id="playerSelectorContainer">
         <select
-          value = {this.state.selectedValue}
-          onChange = {this.handleChange}
+
+          value = {this.props.value}
+          onChange = {this.props.updateNumberOfPlayers}
           >
           <option value="1">1</option>
           <option value="2">2</option>

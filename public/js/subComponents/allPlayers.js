@@ -10,16 +10,17 @@ export default class AllPlayers extends React.Component {
   render() {
 
     let allPlayers = [];
-    // let numPlayers = SELECTORVALUE; //this will be determined by the initial dropdown. disabled for testing. replace the 5 below with numPlayers
-    for (let i=0;i<5;i++){
+    let numPlayers = this.props.playersNumber; //this is determined by the dropdown selection. 
+    for (let i=0;i<numPlayers;i++){
         let stamp = new Date().getTime();
         let uniqueStamp= `${i}${stamp}`;
       allPlayers.push(
         <SinglePlayer key={uniqueStamp} id={uniqueStamp} playerNumber={i+1}
           />
       )
-      
+
     }
+
 
 
     return(

@@ -7,7 +7,7 @@ import $ from 'jquery';
 export default class SinglePlayer extends React.Component {
 
 
-
+// now i need to add the dice value selection here. 
   render() {
 
     return(
