@@ -23,7 +23,7 @@ export default class SinglePlayer extends React.Component {
         hello, player number {this.props.playerNumber}
         <PredictionSelector
           id = {`${this.props.id}SelectorContainer`}
-          value = {this.props.value}
+          playerPredictedValue = {this.props.playerPredictedValue}
           updatePlayerPredictedValue = {this.props.updatePlayerPredictedValue}
           playerNumber = {this.props.playerNumber}
           maxDiceSideNumber = {this.props.maxDiceSideNumber}

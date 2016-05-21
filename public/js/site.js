@@ -18,7 +18,7 @@ export default class Site extends React.Component {
     this.state = {
       selectedPlayerValue: "1",
       selectedDiceSidesValue: "2",
-      playerPredictedValue: ['','','','',''],
+      playerPredictedValue: [0,0,0,0,0],
       playerWins: [0,0,0,0,0],
       //i want to have the player number determined dynamically, but running into some issues trying to implement that. since dropdown for player number tops out at 5, i'm setting the array lengths here.
       placeholder: [,,,,,]
@@ -73,7 +73,7 @@ export default class Site extends React.Component {
 
   render() {
 
-  
+
 
 
     return(
@@ -92,7 +92,7 @@ export default class Site extends React.Component {
         <AllPlayers
           playersNumber = {this.state.selectedPlayerValue}
           updatePlayerPredictedValue = {this.updatePlayerPredictedValue}
-          value = {this.playerPredictedValue}
+          playerPredictedValue = {this.state.playerPredictedValue}
           maxDiceSideNumber = {this.state.selectedDiceSidesValue}
           />
 
