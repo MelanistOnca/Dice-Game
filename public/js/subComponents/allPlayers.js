@@ -15,7 +15,13 @@ export default class AllPlayers extends React.Component {
         let stamp = new Date().getTime();
         let uniqueStamp= `${i}${stamp}`;
       allPlayers.push(
-        <SinglePlayer key={uniqueStamp} id={uniqueStamp} playerNumber={i+1} updatePlayerPredictedValue = {this.props.updatePlayerPredictedValue}
+        <SinglePlayer
+          key = {uniqueStamp}
+          id = {uniqueStamp}
+          playerNumber = {i+1}
+          updatePlayerPredictedValue = {this.props.updatePlayerPredictedValue}
+          value = {this.props.value}
+          maxDiceSideNumber = {this.props.maxDiceSideNumber}
           />
       )
 
