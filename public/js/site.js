@@ -10,6 +10,9 @@ import Test from './test';
 import AllPlayers from './subComponents/allPlayers';
 import PlayerSelector from './subComponents/playerSelector';
 import SidesSelector from './subComponents/sidesSelector';
+import Button from './subComponents/button';
+import WinCondition from './subComponents/winCondition';
+import RoundTally from './subComponents/roundTally';
 
 export default class Site extends React.Component {
 
@@ -19,10 +22,9 @@ export default class Site extends React.Component {
       selectedPlayerValue: "1",
       selectedDiceSidesValue: "2",
       playerPredictedValue: [0,0,0,0,0],
+      diceResult: -1, //not 0 so that initial state checks dont register "wins". may not be necessary depending on how logic checks are made, which haven't been designed yet.
       playerWins: [0,0,0,0,0],
       //i want to have the player number determined dynamically, but running into some issues trying to implement that. since dropdown for player number tops out at 5, i'm setting the array lengths here.
-      placeholder: [,,,,,]
-
     }
     this.updateNumberOfPlayers = this.updateNumberOfPlayers.bind(this);
     this.updateSides = this.updateSides.bind(this);
@@ -46,24 +48,16 @@ export default class Site extends React.Component {
       }
     )
   }
-  // maxDiceSideNumber(){
-  //   // return this.state.selectedDiceSidesValue;
-  // }
+
   updatePlayerPredictedValue(playerArrayNumber, event){
-    //not certain how to determine which PPV to update. do not want to write 5 copies of same function. need to pass the player id from the child to this function. can i have (event, this.props.playerNumber) as part of the onChange?
-    // console.log(playerArrayNumber,'was playerArrayNumber in site.js');
-    console.log(event,'event');
-    console.log(playerArrayNumber, 'was playerArrayNumber in updatePPV in site.js');
-    console.log(this.state,'this.state in updatePPV in site.js');
+    // console.log(event,'event');
+    // console.log(playerArrayNumber, 'was playerArrayNumber in updatePPV in site.js');
+    // console.log(this.state,'this.state in updatePPV in site.js');
     let playerPredictedValueTemp=[];
-    // playerPredictedValueTemp[playerArrayNumber] = event.target.value;
-    this.state.playerPredictedValue[playerArrayNumber]=event.target.value
+    this.state.playerPredictedValue[playerArrayNumber]=event.target.value;
 
     this.setState(
       {
-        // playerPredictedValue[playerArrayNumber]: 'test'
-        // playerPredictedValue[playerArrayNumber]: event.target.value
-        //[var] notation is not working here. i think i ran in to this before but don't remember the solution...
         placeholder: 'bla',
         playerPredictedValue: this.state.playerPredictedValue
       }
@@ -94,6 +88,17 @@ export default class Site extends React.Component {
           updatePlayerPredictedValue = {this.updatePlayerPredictedValue}
           playerPredictedValue = {this.state.playerPredictedValue}
           maxDiceSideNumber = {this.state.selectedDiceSidesValue}
+          />
+        <Button
+          playerPredictedValue = {this.state.playerPredictedValue}
+          diceResult = {this.state.diceResult}
+          playerWins = {this.state.playerWins}
+          />
+        <WinCondition
+
+          />
+        <RoundTally
+
           />
 
       </div>
