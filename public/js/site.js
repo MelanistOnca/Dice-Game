@@ -1,5 +1,3 @@
-// 'use strict'
-
 // basics
 import React from 'react';
 import { render } from 'react-dom';
@@ -12,7 +10,7 @@ import PlayerSelector from './subComponents/playerSelector';
 import SidesSelector from './subComponents/sidesSelector';
 import Button from './subComponents/button';
 import WinCondition from './subComponents/winCondition';
-import RoundTally from './subComponents/roundTally';
+import Scoreboard from './subComponents/scoreboard';
 
 export default class Site extends React.Component {
 
@@ -21,7 +19,7 @@ export default class Site extends React.Component {
     this.state = {
       selectedPlayerValue: "1",
       selectedDiceSidesValue: "2",
-      playerPredictedValue: [0,0,0,0,0],
+      playerPredictedValue: [1,1,1,1,1],
       diceResult: -1, //not 0 so that initial state checks dont register "wins". may not be necessary depending on how logic checks are made, which haven't been designed yet.
       playerWins: [0,0,0,0,0],
       //i want to have the player number determined dynamically, but running into some issues trying to implement that. since dropdown for player number tops out at 5, i'm setting the array lengths here.
@@ -29,6 +27,7 @@ export default class Site extends React.Component {
     this.updateNumberOfPlayers = this.updateNumberOfPlayers.bind(this);
     this.updateSides = this.updateSides.bind(this);
     this.updatePlayerPredictedValue = this.updatePlayerPredictedValue.bind(this);
+    this.updateDiceResult = this.updateDiceResult.bind(this);
   }
   updateNumberOfPlayers(event){
     // console.log(event.target,'was event.target in site.js');
@@ -54,7 +53,7 @@ export default class Site extends React.Component {
     // console.log(playerArrayNumber, 'was playerArrayNumber in updatePPV in site.js');
     // console.log(this.state,'this.state in updatePPV in site.js');
     let playerPredictedValueTemp=[];
-    this.state.playerPredictedValue[playerArrayNumber]=event.target.value;
+    this.state.playerPredictedValue[playerArrayNumber]=parseInt(event.target.value);
 
     this.setState(
       {
@@ -64,14 +63,20 @@ export default class Site extends React.Component {
     )
   }
 
+  updateDiceResult(roll){
+    this.setState(
+      {
+        diceResult: roll
+      }
+    )
+  }
 
   render() {
 
-
-
-
-    return(
-      <div id="siteContainer">
+    return (
+      <div
+        id = "siteContainer"
+        >
         the site component loaded
         <Test/>
 
@@ -90,18 +95,24 @@ export default class Site extends React.Component {
           maxDiceSideNumber = {this.state.selectedDiceSidesValue}
           />
         <Button
+          selectedPlayerValue =  {this.state.selectedPlayerValue}
+          selectedDiceSidesValue = {this.state.selectedDiceSidesValue}
           playerPredictedValue = {this.state.playerPredictedValue}
           diceResult = {this.state.diceResult}
           playerWins = {this.state.playerWins}
+          updateDiceResult = {this.updateDiceResult}
           />
         <WinCondition
 
           />
-        <RoundTally
-
+        <Scoreboard
+          diceResult = {this.state.diceResult}
+          playerWins = {this.state.playerWins}
+          selectedPlayerValue = {this.state.selectedPlayerValue}
           />
 
       </div>
     )
   }
+
 }

@@ -27,8 +27,8 @@ export default class PredictionSelector extends React.Component{
     // <option value = "this will need to be dynamically generated.">temp</option>//these need to be generated based on dice sides selected.
     // <option value = "temp2">temp2</option>
     // console.log(this.props.playerPredictedValue,'was this.props.playerPredictedValue in playerPredictionSelector'); //coming back as undefined
-    console.log(this.props.playerNumber, 'was this.props.playerNumber in playerPredictionSelector.js');
-    console.log(this.props.playerPredictedValue[this.props.playerNumber-1],'was this.props.playerPredictedValue[this.props.playerNumber-1] in playerPredictionSelector');
+    // console.log(this.props.playerNumber, 'was this.props.playerNumber in playerPredictionSelector.js');
+    // console.log(this.props.playerPredictedValue[this.props.playerNumber-1],'was this.props.playerPredictedValue[this.props.playerNumber-1] in playerPredictionSelector');
     let thisPlayerValue = this.props.playerPredictedValue[this.props.playerNumber-1]
 
     return(
