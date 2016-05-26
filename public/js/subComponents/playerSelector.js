@@ -12,9 +12,10 @@ export default class PlayerSelector extends React.Component {
   // ref = "playerSelection"
   // inside <select> but don't think i needed it? keeping here in case funny business happens and i did need it
   render() {
-    console.log(this.props,'was this.props in render, before return');
+
     return(
-      <div id="playerSelectorContainer">
+      <div id = "playerSelectorContainer">
+        <label>How many Players?
         <select
 
           value = {this.props.value}
@@ -27,7 +28,7 @@ export default class PlayerSelector extends React.Component {
           <option value="5">5</option>
 
         </select>
-
+        </label>
       </div>
     )
 

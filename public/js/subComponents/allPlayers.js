@@ -11,9 +11,9 @@ export default class AllPlayers extends React.Component {
       console.log(this.props.playerPredictedValue,'was this.props.playerPredictedValue in allPlayers.js');//undefined. of course it would be, since no on predicted anything.
     let allPlayers = [];
     let numPlayers = parseInt(this.props.playersNumber); //this is determined by the dropdown selection.
-    for (let i = 0;i < numPlayers;i++){
+    for (let i = 0; i < numPlayers; i++){
         let stamp = new Date().getTime();
-        let uniqueStamp= `${i}${stamp}`;
+        let uniqueStamp = `${i}${stamp}`;
       allPlayers.push(
         <SinglePlayer
           key = {uniqueStamp}

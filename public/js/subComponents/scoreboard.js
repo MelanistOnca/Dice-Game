@@ -26,12 +26,12 @@ export default class Scoreboard extends React.Component {
       <div
         id = "resultAndTallyContainer"
         >
-        <Result
-          diceResult = {this.props.diceResult}
-          />
         <Tally
           playerWins = {this.props.playerWins}
           selectedPlayerValue = {this.props.selectedPlayerValue}
+          />
+        <Result
+          diceResult = {this.props.diceResult}
           />
 
 
