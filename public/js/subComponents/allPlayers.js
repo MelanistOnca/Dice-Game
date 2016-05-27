@@ -8,7 +8,7 @@ export default class AllPlayers extends React.Component {
 
   //render loop inspired by http://stackoverflow.com/a/22877049
   render() {
-      console.log(this.props.playerPredictedValue,'was this.props.playerPredictedValue in allPlayers.js');//undefined. of course it would be, since no on predicted anything.
+      // console.log(this.props.playerPredictedValue,'was this.props.playerPredictedValue in allPlayers.js');//undefined. of course it would be, since no on predicted anything.
     let allPlayers = [];
     let numPlayers = parseInt(this.props.playersNumber); //this is determined by the dropdown selection.
     for (let i = 0; i < numPlayers; i++){

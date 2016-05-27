@@ -32,11 +32,11 @@ export default class Victory extends React.Component{
       if(this.props.playerWins[i] === this.props.winCondition){
         winners++;
       }
-    } //might be able to refactor this loop and the below's loop into one pass/loop? consider for future update.
+    } //might be able to refactor this loop and the below's loop into one pass/loop? consider for future update. the winners>1 positioning makes this less easy than it may first appear? need to whiteboard it at some point.
 
 
     if(winners > 1){
-      console.log('winners>1 if started');
+
       winnersGroup.push(
         <VictoryMessage
           key = {"tieMessage"}
@@ -59,8 +59,39 @@ export default class Victory extends React.Component{
           )
         }
       }
-      console.log(winnersGroup, 'was winnersGroup');
     }
+    // for(let i = 0; i < this.props.selectedPlayerValue ; i++){
+    //   if(this.props.playerWins[i] === this.props.winCondition){
+    //     winners++;
+    //   }
+    // } //might be able to refactor this loop and the below's loop into one pass/loop? consider for future update.
+    //
+    //
+    // if(winners > 1){
+    //
+    //   winnersGroup.push(
+    //     <VictoryMessage
+    //       key = {"tieMessage"}
+    //       id = {"tieMessage"}
+    //       tie = {true}
+    //       message = {"There has been a tie!"}
+    //       />
+    //   )
+    //
+    //   for(let i = 0; i < this.props.selectedPlayerValue ; i++){
+    //     if(this.props.playerWins[i] === this.props.winCondition){
+    //       let stamp = new Date().getTime();
+    //       let uniqueStamp= `${i}${stamp}`;
+    //       winnersGroup.push(
+    //         <VictoryMessage
+    //           key = {uniqueStamp}
+    //           id = {uniqueStamp}
+    //           message = { `Player ${i+1} wins!` }
+    //           />
+    //       )
+    //     }
+    //   }
+    // }
 
     return(
       <div id = "victoryStatusContainer">

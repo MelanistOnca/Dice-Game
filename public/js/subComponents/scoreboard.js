@@ -17,7 +17,7 @@ export default class Scoreboard extends React.Component {
     //   this.props.diceResult,
     //   this.props.playerWins,
     //   this.props.selectedPlayerValue
-    console.log(this.props.diceResult, 'was this.props.diceResult');
+    // console.log(this.props.diceResult, 'was this.props.diceResult');
 
 
     //kind of awkward phrasing in the <p></p> below.

@@ -8,11 +8,17 @@ export default class Test extends React.Component{
 
   render(){
     // console.log(this.props, 'was this.props');
+    let test;
+
+    if(this.props.gameStarted){
+      test = <div>Game Started</div>
+    } else {
+      test = <div>Game not started</div>
+    }
 
     return(
       <div id="testContainer" >
-        hello
-        <el>element</el><el>element2</el>
+        {test}
       </div>
     )
   }

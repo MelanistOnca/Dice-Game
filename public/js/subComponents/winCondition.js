@@ -11,7 +11,7 @@ export default class WinCondition extends React.Component{
 
   render(){
 
-    console.log(this.props, 'was this.props in winCondition.js');
+    // console.log(this.props, 'was this.props in winCondition.js');
 
     return(
       <div id = "winConditionContainer">

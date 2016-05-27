@@ -17,9 +17,9 @@ export default class Tally extends React.Component{
 
 
 
-    console.log('line above for loop in tally.js');
+
     for (let i = 0;i < numPlayers;i++){
-      console.log('inside for loop of tally.js');
+
 
         let stamp = new Date().getTime();
         let uniqueStamp = `${i}${stamp}`;
@@ -35,7 +35,7 @@ export default class Tally extends React.Component{
       )
 
     }
-    console.log(allPlayersScore, 'was allPlayersScore in tally.js');
+    
 
     return(
       <div

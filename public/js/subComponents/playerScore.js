@@ -18,7 +18,7 @@ export default class PlayerScore extends React.Component{
     // for (let i = 0; i < this.props.numPlayers; i++){
     //
     // }
-    console.log(this.props.playerWins, 'was this.props.playerWins in playerScore.js');
+    
 
     return(
       <div
