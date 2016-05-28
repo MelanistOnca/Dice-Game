@@ -39,6 +39,7 @@ export default class Site extends React.Component {
     this.updateDiceResult = this.updateDiceResult.bind(this);
     this.updateWinCondition = this.updateWinCondition.bind(this);
     this.updateGameStart = this.updateGameStart.bind(this);
+    this.resetGameToStart = this.resetGameToStart.bind(this);
   }
 
   // let val = event.target.value; //can i use this to replace event.target.value in all the functions below? test later. scoping may be problematic.
@@ -175,7 +176,7 @@ export default class Site extends React.Component {
           selectedPlayerValue = {this.state.selectedPlayerValue}
           />
         <PlayAgain
-          updateGameStart = {this.updateGameStart}
+          resetGameToStart = {this.resetGameToStart}
           />
 
       </div>

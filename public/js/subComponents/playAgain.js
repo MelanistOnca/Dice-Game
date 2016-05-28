@@ -6,6 +6,10 @@ export default class PlayAgain extends React.Component{
 
   render(){
 
+
+    //this doesn't seem to be calling this.props.resetGameToStart
+    console.log(this.props, 'was this.props in playAgain.js');//looks like i was passing the wrong function.
+
     return(
       <div
         id = "restartButtonContainer"
