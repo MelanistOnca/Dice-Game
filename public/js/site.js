@@ -6,14 +6,14 @@ import $ from 'jquery';
 // components
 import Test from './test';
 import AllPlayers from './subComponents/allPlayers';
-import PlayerSelector from './subComponents/playerSelector';
-import SidesSelector from './subComponents/sidesSelector';
+
 import RollButton from './subComponents/rollButton';
-import StartButton from './subComponents/startButton';
-import WinCondition from './subComponents/winCondition';
+import ConfigSettings from './subComponents/configSettings';
+
 import Scoreboard from './subComponents/scoreboard';
 import Victory from './subComponents/victory';
 import PlayAgain from './subComponents/playAgain';
+import GameSetup from './subComponents/gameSetup';
 
 export default class Site extends React.Component {
 
@@ -28,15 +28,17 @@ export default class Site extends React.Component {
       playerWins: [0,0,0,0,0],
       //i want to have the player number determined dynamically, but running into some issues trying to implement that. since dropdown for player number tops out at 5, i'm setting the array lengths here.
       winCondition: 1,
+      gameFinished: false,
       gameRestarted: false
     }
-    //a whole lot of this binding. there has to be a was to group this into a single line or something, right?
+    //a whole lot of this binding. there has to be a way to group this into a single line or something, right?
     this.updateGameStart = this.updateGameStart.bind(this)
     this.updateNumberOfPlayers = this.updateNumberOfPlayers.bind(this);
     this.updateSides = this.updateSides.bind(this);
     this.updatePlayerPredictedValue = this.updatePlayerPredictedValue.bind(this);
     this.updateDiceResult = this.updateDiceResult.bind(this);
     this.updateWinCondition = this.updateWinCondition.bind(this);
+    this.updateGameStart = this.updateGameStart.bind(this);
   }
 
   // let val = event.target.value; //can i use this to replace event.target.value in all the functions below? test later. scoping may be problematic.
@@ -45,6 +47,13 @@ export default class Site extends React.Component {
     this.setState(
       {
         gameStarted: true
+      }
+    )
+  }
+  resetGameToStart(event){
+    this.setState(
+      {
+        gameStarted: false
       }
     )
   }
@@ -118,21 +127,27 @@ export default class Site extends React.Component {
         <Test
           gameStarted = {this.state.gameStarted}
           />
-        <StartButton
-          updateGameStart = {this.updateGameStart}
+
+          <ConfigSettings
+            gameStarted = {this.state.gameStarted}
+            updateGameStart = {this.updateGameStart}
+
+            updateNumberOfPlayers = {this.updateNumberOfPlayers}
+            SPvalue = {this.state.selectedPlayerValue}
+
+            updateSides = {this.updateSides}
+            SDSvalue = {this.state.selectedDiceSidesValue}
+
+            updateWinCondition = {this.updateWinCondition}
+            WCvalue = {this.state.winCondition}
+            />
+
+        <GameSetup
+          gameFinished = {this.state.gameFinished}
           gameStarted = {this.state.gameStarted}
-          />
-        <PlayerSelector
-          updateNumberOfPlayers = {this.updateNumberOfPlayers}
-          value = {this.state.selectedPlayerValue}
-          />
-        <SidesSelector
-          updateSides = {this.updateSides}
-          value = {this.state.selectedDiceSidesValue}
-          />
-        <WinCondition
-          value = {this.state.winCondition}
-          updateWinCondition = {this.updateWinCondition}
+          selectedDiceSidesValue = {this.state.selectedDiceSidesValue}
+          selectedPlayerValue = {this.state.selectedPlayerValue}
+          winCondition = {this.state.winCondition}
           />
 
         <AllPlayers
@@ -159,7 +174,9 @@ export default class Site extends React.Component {
           winCondition = {this.state.winCondition}
           selectedPlayerValue = {this.state.selectedPlayerValue}
           />
-
+        <PlayAgain
+          updateGameStart = {this.updateGameStart}
+          />
 
       </div>
     )

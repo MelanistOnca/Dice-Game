@@ -6,6 +6,11 @@ import SinglePlayer from './singlePlayer';
 
 export default class AllPlayers extends React.Component {
 
+
+// NEED TO MAKE THIS CONTINGENT ON GAME HAVING BEEN STARTED
+
+
+
   //render loop inspired by http://stackoverflow.com/a/22877049
   render() {
       // console.log(this.props.playerPredictedValue,'was this.props.playerPredictedValue in allPlayers.js');//undefined. of course it would be, since no on predicted anything.

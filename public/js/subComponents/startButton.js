@@ -5,11 +5,12 @@ import $ from 'jquery';
 export default class StartButton extends React.Component{
 
 
+
   render(){
-    let started;
-    
+    let startedSBcheck;
+
     if(!this.props.gameStarted){
-      started = <div
+      startedSBcheck = <div
         id = "startButtonContainer"
         >
         <button
@@ -21,10 +22,10 @@ export default class StartButton extends React.Component{
 
       </div>
     } else {
-      started = <div></div>
+      startedSBcheck = <div></div>
     }
     return(
-      <div>{started}</div>
+      <div>{startedSBcheck}</div>
 
     )
   }

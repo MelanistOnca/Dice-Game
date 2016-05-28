@@ -11,6 +11,13 @@ html {
   flex-direction: column;
   text-align: center;
 }
+
+/*#gameStateListContainer li{
+  list-style: none;
+}*/
+#gameSetupContainer ul{
+  list-style: none;
+}
 /*seems like display:flex doesn't inherit? possibly only inherits 1-deep? but that seems non-sensicle.*/
 #playersContainer {
   display: flex;
