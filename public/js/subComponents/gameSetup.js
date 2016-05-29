@@ -16,24 +16,26 @@ export default class GameSetup extends React.Component{
     //make return conditional on "start game" having been pressed, and show what the current ruleset is.
     let gameState;
     //list styling here seems off-center? tinker.
-    gameState =
-    <ul
-      id = "gameStateListContainer"
-      >
-      <li>This game is using {this.props.selectedDiceSidesValue} sided dice.</li>
-      <li>There are {this.props.selectedPlayerValue} players for this game.</li>
-      <li>Win the game by getting {this.props.winCondition} points!</li>
 
+    if(this.props.gameStarted){
+      gameState =
+      <ul
+        id = "gameStateListContainer"
+        >
+        <li>This game is using {this.props.selectedDiceSidesValue} sided dice.</li>
+        <li>There are {this.props.selectedPlayerValue} players for this game.</li>
+        <li>Win the game by getting {this.props.winCondition} points!</li>
+      </ul>
+    } else{
+      <div></div>
+    }
 
-
-
-    </ul>
 
     return(
       <div
         id = "gameSetupContainer"
         >
-        
+
         {gameState}
       </div>
     )

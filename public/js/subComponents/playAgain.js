@@ -6,20 +6,29 @@ export default class PlayAgain extends React.Component{
 
   render(){
 
+    
+    //should probably be invisible until game is won? maybe not? may want to restart in the middle of a game if a bad setup choice was made.
+    let restartCheck;
 
-    //this doesn't seem to be calling this.props.resetGameToStart
-    console.log(this.props, 'was this.props in playAgain.js');//looks like i was passing the wrong function.
+    if(this.props.gameStarted){
+      restartCheck =
+      <button
+        id = "restartButton"
+        onClick = {this.props.resetGameToStart}
+        >
+        Play Again
+      </button>
+    } else {
+      restartCheck = <div></div>
+    }
+
+    //game is not restarting.
 
     return(
       <div
         id = "restartButtonContainer"
         >
-        <button
-          id = "restartButton"
-          onClick = {this.props.resetGameToStart}
-          >
-          Play Again
-        </button>
+        {restartCheck}
 
       </div>
 

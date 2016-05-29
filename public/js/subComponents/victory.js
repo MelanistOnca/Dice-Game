@@ -9,7 +9,8 @@ import VictoryMessage from './victoryMessage';
 
 export default class Victory extends React.Component{
 
-
+//this seems to have stopped working. check commit where it was working to see what differences
+//switched the commented and uncommented sections, started working. reviewed both sections side by side and they appear to be the same. must be missing something that's different. since working now, leave as is and review later.
   render(){
 
 
@@ -23,16 +24,20 @@ export default class Victory extends React.Component{
     //logic to determine winner(s)
     //loop through playerWins checking if playerWins===winCondition. render "player x wins" when player x has the requisite # of wins.
     //handle ties. create new var, let winners = 0; , if (winners > 1), tie declared, "We have a tie! players X,Y,... win!"
+    // console.log(this.props, 'this.props in victory.js');
     let winners = 0;
     let winnersGroup = [];
+    let winnersGroupFinal = [];
     let tie = "a  tie happened, but the players weren't determined";
+
 
 
     for(let i = 0; i < this.props.selectedPlayerValue ; i++){
       if(this.props.playerWins[i] === this.props.winCondition){
         winners++;
+        console.log('winners was incremented');
       }
-    } //might be able to refactor this loop and the below's loop into one pass/loop? consider for future update. the winners>1 positioning makes this less easy than it may first appear? need to whiteboard it at some point.
+    } //might be able to refactor this loop and the below's loop into one pass/loop? consider for future update.
 
 
     if(winners > 1){
@@ -45,11 +50,13 @@ export default class Victory extends React.Component{
           message = {"There has been a tie!"}
           />
       )
-
+    } else if (winners >= 1){
+      console.log('when winners are >= 1');
       for(let i = 0; i < this.props.selectedPlayerValue ; i++){
         if(this.props.playerWins[i] === this.props.winCondition){
           let stamp = new Date().getTime();
           let uniqueStamp= `${i}${stamp}`;
+          console.log('about to push into winnersGroup');
           winnersGroup.push(
             <VictoryMessage
               key = {uniqueStamp}
@@ -60,11 +67,13 @@ export default class Victory extends React.Component{
         }
       }
     }
+
+    console.log(winnersGroup, 'was winnersGroup');
     // for(let i = 0; i < this.props.selectedPlayerValue ; i++){
     //   if(this.props.playerWins[i] === this.props.winCondition){
     //     winners++;
     //   }
-    // } //might be able to refactor this loop and the below's loop into one pass/loop? consider for future update.
+    // } //might be able to refactor this loop and the below's loop into one pass/loop? consider for future update. the winners>1 positioning makes this less easy than it may first appear? need to whiteboard it at some point.
     //
     //
     // if(winners > 1){
@@ -92,10 +101,20 @@ export default class Victory extends React.Component{
     //     }
     //   }
     // }
+    let finishedGame;
+    console.log(this.props, 'this.props in victory.js');
+    console.log(finishedGame, 'was finishedGame, should be undefined');
+    if(this.gameFinished){
+      finishedGame = winnersGroup
+      console.log(finishedGame, 'was finishedGame when this.gameFinished is true');
+    } else{
+      finishedGame = <div>!this.gameFinished</div>
+    }
 
     return(
       <div id = "victoryStatusContainer">
-        {winnersGroup}
+        <p></p>
+        {finishedGame}
       </div>
 
     )

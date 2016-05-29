@@ -10,10 +10,13 @@ import AllPlayers from './subComponents/allPlayers';
 import RollButton from './subComponents/rollButton';
 import ConfigSettings from './subComponents/configSettings';
 
-import Scoreboard from './subComponents/scoreboard';
+// import Scoreboard from './subComponents/scoreboard';
 import Victory from './subComponents/victory';
 import PlayAgain from './subComponents/playAgain';
-import GameSetup from './subComponents/gameSetup';
+// import GameSetup from './subComponents/gameSetup';
+
+import LiveGame from './subComponents/liveGame';
+// import FinishedGame from './subComponents/finishedGame';
 
 export default class Site extends React.Component {
 
@@ -40,6 +43,7 @@ export default class Site extends React.Component {
     this.updateWinCondition = this.updateWinCondition.bind(this);
     this.updateGameStart = this.updateGameStart.bind(this);
     this.resetGameToStart = this.resetGameToStart.bind(this);
+    this.updateGameFinish = this.updateGameFinish.bind(this);
   }
 
   // let val = event.target.value; //can i use this to replace event.target.value in all the functions below? test later. scoping may be problematic.
@@ -51,10 +55,20 @@ export default class Site extends React.Component {
       }
     )
   }
-  resetGameToStart(event){
+  updateGameFinish(){
     this.setState(
       {
-        gameStarted: false
+        gameFinished: true
+      }
+    )
+  }
+  resetGameToStart(event){
+    console.log('resetGameToStart was called.');
+    this.setState(
+      {
+        gameStarted: false,
+        gameFinished: false,
+        playerWins: [0,0,0,0,0]
       }
     )
   }
@@ -124,60 +138,46 @@ export default class Site extends React.Component {
       <div
         id = "siteContainer"
         >
-        the site component loaded
-        <Test
+        <ConfigSettings
           gameStarted = {this.state.gameStarted}
+          updateGameStart = {this.updateGameStart}
+
+          updateNumberOfPlayers = {this.updateNumberOfPlayers}
+          SPvalue = {this.state.selectedPlayerValue}
+
+          updateSides = {this.updateSides}
+          SDSvalue = {this.state.selectedDiceSidesValue}
+
+          updateWinCondition = {this.updateWinCondition}
+          WCvalue = {this.state.winCondition}
           />
 
-          <ConfigSettings
-            gameStarted = {this.state.gameStarted}
-            updateGameStart = {this.updateGameStart}
-
-            updateNumberOfPlayers = {this.updateNumberOfPlayers}
-            SPvalue = {this.state.selectedPlayerValue}
-
-            updateSides = {this.updateSides}
-            SDSvalue = {this.state.selectedDiceSidesValue}
-
-            updateWinCondition = {this.updateWinCondition}
-            WCvalue = {this.state.winCondition}
-            />
-
-        <GameSetup
+        <LiveGame
           gameFinished = {this.state.gameFinished}
           gameStarted = {this.state.gameStarted}
           selectedDiceSidesValue = {this.state.selectedDiceSidesValue}
           selectedPlayerValue = {this.state.selectedPlayerValue}
           winCondition = {this.state.winCondition}
-          />
-
-        <AllPlayers
           playersNumber = {this.state.selectedPlayerValue}
           updatePlayerPredictedValue = {this.updatePlayerPredictedValue}
           playerPredictedValue = {this.state.playerPredictedValue}
           maxDiceSideNumber = {this.state.selectedDiceSidesValue}
-          />
-        <Scoreboard
-          diceResult = {this.state.diceResult}
-          playerWins = {this.state.playerWins}
-          selectedPlayerValue = {this.state.selectedPlayerValue}
-          />
-        <RollButton
-          selectedPlayerValue =  {this.state.selectedPlayerValue}
-          selectedDiceSidesValue = {this.state.selectedDiceSidesValue}
-          playerPredictedValue = {this.state.playerPredictedValue}
           diceResult = {this.state.diceResult}
           playerWins = {this.state.playerWins}
           updateDiceResult = {this.updateDiceResult}
+          updateGameFinish = {this.updateGameFinish}
           />
         <Victory
           playerWins = {this.state.playerWins}
           winCondition = {this.state.winCondition}
           selectedPlayerValue = {this.state.selectedPlayerValue}
+          gameFinished = {this.state.gameFinished}
           />
         <PlayAgain
+          gameStarted = {this.state.gameStarted}
           resetGameToStart = {this.resetGameToStart}
           />
+
 
       </div>
     )

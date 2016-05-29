@@ -11,7 +11,7 @@ import StartButton from './startButton';
 
 export default class ConfigSettings extends React.Component {
 
-  
+
 
   render(){
     // console.log(this.props, 'this.props in configSettings.js');
@@ -23,10 +23,6 @@ export default class ConfigSettings extends React.Component {
     if(!this.props.gameStarted){
       config =
       <div>
-        <StartButton
-          updateGameStart = {this.props.updateGameStart}
-          gameStarted = {this.props.gameStarted}
-          />
         <PlayerSelector
           updateNumberOfPlayers = {this.props.updateNumberOfPlayers}
           value = {this.props.SPvalue}
@@ -41,6 +37,10 @@ export default class ConfigSettings extends React.Component {
           updateWinCondition = {this.props.updateWinCondition}
           value = {this.props.WCvalue}
 
+          />
+        <StartButton
+          updateGameStart = {this.props.updateGameStart}
+          gameStarted = {this.props.gameStarted}
           />
         </div>
     } else {

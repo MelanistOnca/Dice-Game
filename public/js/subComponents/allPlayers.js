@@ -32,13 +32,20 @@ export default class AllPlayers extends React.Component {
 
     }
 
+    let gameStatus;
+
+    if(!this.props.gameFinished){
+      gameStatus = allPlayers
+    } else {
+      gamestatus = <div></div>
+    }
 
     //need to play with styling here. should be centered even with 1 player. currently left-aligned.
     return(
 
 
       <div id="playersContainer">
-        {allPlayers}
+        {gameStatus}
       </div>
 
     )
