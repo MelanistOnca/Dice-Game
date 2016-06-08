@@ -1,0 +1,84 @@
+
+
+html {
+  background-color: grey;
+  /*display: flex;*/
+  color: #52006E;
+}
+
+#siteContainer{
+  /*background-color: purple;*/
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  top: 10px;
+
+}
+
+#startButton {
+  margin: 1em;
+}
+
+#gameInProgressContainer{
+  position:relative;
+  top: 5px;
+}
+
+
+#playersContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.singlePlayer {
+  padding: .5em;
+  border-radius: 1em;
+}
+
+#rollButtonContainer {
+  padding: 5px;
+}
+
+#resultAndTallyContainer{
+  position: relative;
+  top: 5px;
+  display: inline-flex;
+  padding: 1em;
+  border: 1px solid black;
+  border-radius: 1em;
+  flex-direction: column;
+
+}
+
+.playerScoreContainer{
+
+}
+
+#tallyContainer{
+
+}
+
+#diceResultContainer{
+
+}
+
+#restartButtonContainer {
+  padding: 5px;
+}
+
+#testContainer {
+  background-color: orange;
+  /*display: flex;*/
+  flex-direction: column;
+
+}
+
+
+.singlePlayer {
+  border: 1px solid black;
+  margin: 1px;
+  /*background-color: blue;*/
+  /*align-content: center;*/
+  /*justify-content: center;*/
+}
