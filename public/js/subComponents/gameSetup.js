@@ -16,16 +16,17 @@ export default class GameSetup extends React.Component{
     //make return conditional on "start game" having been pressed, and show what the current ruleset is.
     let gameState;
     //list styling here seems off-center? tinker.
-
+    let divStyle = {fontWeight:"bold"}
     if(this.props.gameStarted){
       gameState =
-      <ul
+      <div
         id = "gameStateListContainer"
         >
-        <li>This game is using {this.props.selectedDiceSidesValue} sided dice.</li>
-        <li>There are {this.props.selectedPlayerValue} players for this game.</li>
-        <li>Win the game by getting {this.props.winCondition} points!</li>
-      </ul>
+        <div >This game is using {this.props.selectedDiceSidesValue}&nbsp; sided dice.</div>
+        <div>There are {this.props.selectedPlayerValue}&nbsp; players for this game.</div>
+        <div>Win the game by getting {this.props.winCondition}&nbsp; points!</div>
+        <div style={divStyle}>the win the game line needs an if to singularize 'points' if only 1 score is needed to win. also, play with css so site properly takes full screen on mobile. ALSO ALSO, apply the same border styling to the results section as to the scoreboard</div>
+      </div>
     } else{
       <div></div>
     }

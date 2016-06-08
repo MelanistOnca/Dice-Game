@@ -29,6 +29,7 @@ export default class WinCondition extends React.Component{
         </select> &nbsp;
          points wins!
         </label>
+        <div>ALSO this entire section comes in real tiny when displaying on mobile devices mode</div>
       </div>
     )
   }

@@ -1,8 +1,9 @@
 
 
 html {
-  /*background-color: blue;*/
+  background-color: grey;
   /*display: flex;*/
+  color: #52006E;
 }
 
 #siteContainer{
@@ -10,20 +11,60 @@ html {
   display: flex;
   flex-direction: column;
   text-align: center;
+  position: relative;
+  top: 10px;
+
 }
 
-/*#gameStateListContainer li{
-  list-style: none;
-}*/
-#gameSetupContainer ul{
-  list-style: none;
+#startButton {
+  margin: 1em;
 }
-/*seems like display:flex doesn't inherit? possibly only inherits 1-deep? but that seems non-sensicle.*/
+
+#gameInProgressContainer{
+  position:relative;
+  top: 5px;
+}
+
+
 #playersContainer {
   display: flex;
-  /*flex-direction: column;*/
-  /*background-color: green;*/
-  /*need better solution for "centering" the player display so that it auto-spaces better to take up available space.*/
+  justify-content: center;
+}
+
+.singlePlayer {
+  padding: .5em;
+  border-radius: 1em;
+}
+
+#rollButtonContainer {
+  padding: 5px;
+}
+
+#resultAndTallyContainer{
+  position: relative;
+  top: 5px;
+  display: inline-flex;
+  padding: 1em;
+  border: 1px solid black;
+  border-radius: 1em;
+  flex-direction: column;
+
+}
+
+.playerScoreContainer{
+
+}
+
+#tallyContainer{
+
+}
+
+#diceResultContainer{
+
+}
+
+#restartButtonContainer {
+  padding: 5px;
 }
 
 #testContainer {
@@ -33,7 +74,11 @@ html {
 
 }
 
+
 .singlePlayer {
   border: 1px solid black;
+  margin: 1px;
   /*background-color: blue;*/
+  /*align-content: center;*/
+  /*justify-content: center;*/
 }

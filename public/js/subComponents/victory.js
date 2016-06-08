@@ -39,7 +39,8 @@ export default class Victory extends React.Component{
       }
     } //might be able to refactor this loop and the below's loop into one pass/loop? consider for future update.
 
-
+    //these two winners checks are independent. One provides a tie message only when there is more than one winner, the other provides a player-specific message for one OR more winners.
+    //checks for tie to provide tie win message
     if(winners > 1){
 
       winnersGroup.push(
@@ -50,13 +51,15 @@ export default class Victory extends React.Component{
           message = {"There has been a tie!"}
           />
       )
-    } else if (winners >= 1){
+    }
+
+    //checks for all winners to provide a "THAT PLAYER wins" message
+    if (winners >= 1){
       console.log('when winners are >= 1');
       for(let i = 0; i < this.props.selectedPlayerValue ; i++){
         if(this.props.playerWins[i] === this.props.winCondition){
           let stamp = new Date().getTime();
           let uniqueStamp= `${i}${stamp}`;
-          console.log('about to push into winnersGroup');
           winnersGroup.push(
             <VictoryMessage
               key = {uniqueStamp}
@@ -68,7 +71,7 @@ export default class Victory extends React.Component{
       }
     }
 
-    console.log(winnersGroup, 'was winnersGroup');
+    
     // for(let i = 0; i < this.props.selectedPlayerValue ; i++){
     //   if(this.props.playerWins[i] === this.props.winCondition){
     //     winners++;
@@ -102,13 +105,15 @@ export default class Victory extends React.Component{
     //   }
     // }
     let finishedGame;
-    console.log(this.props, 'this.props in victory.js');
-    console.log(finishedGame, 'was finishedGame, should be undefined');
-    if(this.gameFinished){
+    // console.log(this.props, 'this.props in victory.js');
+    // console.log(finishedGame, 'was finishedGame, should be undefined');
+    // console.log(winnersGroup, 'winnersGroup just before this.gameFinished check in victory.js', this.gameFinished, 'this.');
+    if(this.props.gameFinished){
       finishedGame = winnersGroup
-      console.log(finishedGame, 'was finishedGame when this.gameFinished is true');
+
     } else{
-      finishedGame = <div>!this.gameFinished</div>
+      finishedGame = <div></div>
+
     }
 
     return(

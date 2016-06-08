@@ -20,7 +20,7 @@ export default class SinglePlayer extends React.Component {
         className = "singlePlayer"
 
         >
-        hello, player number {this.props.playerNumber}
+        Make your pick, player number {this.props.playerNumber}
         <PredictionSelector
           id = {`${this.props.id}SelectorContainer`}
           playerPredictedValue = {this.props.playerPredictedValue}

@@ -18,12 +18,12 @@ export default class PlayerScore extends React.Component{
     // for (let i = 0; i < this.props.numPlayers; i++){
     //
     // }
-    
+
 
     return(
       <div
         id = {`${this.props.id}PlayerScoreContainer`}
-
+        className = "playerScoreContainer"
         >
         Player {this.props.playerNumber} has a score of {this.props.playerWins[this.props.playerWinsIndex]}
       </div>
