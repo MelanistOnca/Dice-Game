@@ -27,6 +27,7 @@ export default class Site extends React.Component {
       selectedPlayerValue: 1,
       selectedDiceSidesValue: 2,
       playerPredictedValue: [1,1,1,1,1],
+      // playerPredictedValue: [0,0,0,0,0],
       diceResult: -1, //not 0 so that initial state checks dont register "wins". may not be necessary depending on how logic checks are made, which haven't been designed yet.
       playerWins: [0,0,0,0,0],
       //i want to have the player number determined dynamically, but running into some issues trying to implement that. since dropdown for player number tops out at 5, i'm setting the array lengths here.

@@ -2,8 +2,11 @@
 
 html {
   background-color: grey;
-  /*display: flex;*/
   color: #52006E;
+}
+
+div {
+  /*flex-shrink: 0;*/
 }
 
 #siteContainer{
@@ -13,6 +16,35 @@ html {
   text-align: center;
   position: relative;
   top: 10px;
+  /*font-size: 1em;*/
+  /*width: 100%;*/
+  /*flex-grow: 1;*/
+  /*flex: 5 5 30px;*/
+  font-size: 2.25vmin;
+  max-width: 75vw;
+
+}
+
+#configContainer {
+  /*display: flex;*/
+  flex-shrink: 0;
+}
+
+#selectorContainer {
+  /*background-color: orange;*/
+}
+
+#playerSelectorContainer {
+  /*background-color: orange;*/
+  /*display: flex;*/
+  /*margin: 0;*/
+  /*font-size: 100%;*/
+  /*flex-grow: 1;*/
+  /*display: block;*/
+  /*flex-shrink: 1000;*/
+  /*font-size: 150%;*/
+  /*width: 100%;*/
+
 
 }
 
@@ -29,11 +61,13 @@ html {
 #playersContainer {
   display: flex;
   justify-content: center;
+
 }
 
 .singlePlayer {
   padding: .5em;
   border-radius: 1em;
+  /*font-size: 150%;*/
 }
 
 #rollButtonContainer {
@@ -81,4 +115,10 @@ html {
   /*background-color: blue;*/
   /*align-content: center;*/
   /*justify-content: center;*/
+}
+
+.victoryMessage {
+  background-color: #FFFF36;
+  display: inline-flex;
+  padding: 0;
 }

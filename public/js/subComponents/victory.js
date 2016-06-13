@@ -35,7 +35,7 @@ export default class Victory extends React.Component{
     for(let i = 0; i < this.props.selectedPlayerValue ; i++){
       if(this.props.playerWins[i] === this.props.winCondition){
         winners++;
-        console.log('winners was incremented');
+        // console.log('winners was incremented');
       }
     } //might be able to refactor this loop and the below's loop into one pass/loop? consider for future update.
 
@@ -55,7 +55,7 @@ export default class Victory extends React.Component{
 
     //checks for all winners to provide a "THAT PLAYER wins" message
     if (winners >= 1){
-      console.log('when winners are >= 1');
+      // console.log('when winners are >= 1');
       for(let i = 0; i < this.props.selectedPlayerValue ; i++){
         if(this.props.playerWins[i] === this.props.winCondition){
           let stamp = new Date().getTime();
@@ -71,7 +71,7 @@ export default class Victory extends React.Component{
       }
     }
 
-    
+
     // for(let i = 0; i < this.props.selectedPlayerValue ; i++){
     //   if(this.props.playerWins[i] === this.props.winCondition){
     //     winners++;
