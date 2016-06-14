@@ -14,11 +14,11 @@ export default class FinishedGame extends React.Component{
 
 
 
-    //propsify
+
 
     let finishedGame;
 
-    //end of props-ification
+    
     if(this.gameFinished){
       finishedGame =
       <div>

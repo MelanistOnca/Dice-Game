@@ -6,10 +6,11 @@ import $ from 'jquery';
 export default class Result extends React.Component{
 
   componentWillReceiveProps(){
-    $('#diceResultContainer').toggle(10)
-    $('#diceResultContainer').toggle(10)
+    $('#diceResultContainer').toggle(1)
+    $('#diceResultContainer').toggle(1)
     //this is a LITTLE janky, but it gets the point across, i think. probably a better way to do this.
   }
+  //still want a better way to do this, probably should toggle between the below and a filler line where (text)color === background-color to maintain spacing
 
   render(){
 
@@ -19,16 +20,7 @@ export default class Result extends React.Component{
     } else {
       buffer = `a ${this.props.diceResult}.`
     }
-    // let flash = [
-    //   {
-    //     backgroundColor: blue
-    //   },
-    //   {
-    //     backgroundColor: red
-    //   }
-    //
-    // ]
-    // let style;
+    
     return(
       <div
         id = "diceResultContainer"

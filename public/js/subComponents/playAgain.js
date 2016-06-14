@@ -6,8 +6,8 @@ export default class PlayAgain extends React.Component{
 
   render(){
 
-    
-    //should probably be invisible until game is won? maybe not? may want to restart in the middle of a game if a bad setup choice was made.
+
+
     let restartCheck;
 
     if(this.props.gameStarted){
@@ -22,7 +22,7 @@ export default class PlayAgain extends React.Component{
       restartCheck = <div></div>
     }
 
-    //game is not restarting.
+    
 
     return(
       <div

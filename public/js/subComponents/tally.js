@@ -9,18 +9,11 @@ export default class Tally extends React.Component{
 
 
   render(){
-    // props
-    //   this.props.playerWins
 
     let allPlayersScore = [];
     let numPlayers = parseInt(this.props.selectedPlayerValue); //this is determined by the dropdown selection.
 
-
-
-
     for (let i = 0;i < numPlayers;i++){
-
-
         let stamp = new Date().getTime();
         let uniqueStamp = `${i}${stamp}`;
       allPlayersScore.push(
@@ -35,7 +28,7 @@ export default class Tally extends React.Component{
       )
 
     }
-    
+
 
     return(
       <div

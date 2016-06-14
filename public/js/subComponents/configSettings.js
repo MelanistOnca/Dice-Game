@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import $ from 'jquery';
 
 //components
-//playerSelector, sidesSelector, winCondition
 import PlayerSelector from './playerSelector';
 import SidesSelector from './sidesSelector';
 import WinCondition from './winCondition';
@@ -14,10 +13,7 @@ export default class ConfigSettings extends React.Component {
 
 
   render(){
-    // console.log(this.props, 'this.props in configSettings.js');
-//start propsify
 
-    //end props-ification of stuff from site.js
     let config;
 
     if(!this.props.gameStarted){
@@ -46,7 +42,7 @@ export default class ConfigSettings extends React.Component {
     } else {
       config = <div></div>
     }
-    // console.log(config, 'config before return in configSettings.js');
+
 
     return(
       <div id = "configContainer">

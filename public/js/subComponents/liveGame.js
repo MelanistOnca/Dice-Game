@@ -4,8 +4,6 @@ import $ from 'jquery';
 
 //components
 import GameSetup from './gameSetup';
-// import AllPlayers from './allPlayers';
-// import RollButton from './rollButton';
 import Scoreboard from './scoreboard';
 import RunningGame from './runningGame';
 
@@ -54,11 +52,6 @@ export default class LiveGame extends React.Component{
     } else{
       liveGame = <div></div>
     }
-    //propsify
-
-
-
-    //end of props-ification
 
     return(
       <div

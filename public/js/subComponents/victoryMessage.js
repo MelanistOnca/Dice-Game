@@ -14,7 +14,7 @@ export default class VictoryMessage extends React.Component{
         id = {`${this.props.id}VictoryMessageContainer`}
         className = "victoryMessage"
         >
-        {this.props.message}
+          {this.props.message}
       </div>
     )
   }

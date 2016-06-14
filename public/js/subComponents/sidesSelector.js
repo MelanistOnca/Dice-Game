@@ -14,7 +14,7 @@ export default class SidesSelector extends React.Component {
 
 
       <div id="sidesSelectorContainer">
-        <label>Select dice sides:
+        <label>Select the number of sides on the dice:
         <select
           value = {this.props.value}
           onChange = {this.props.updateSides}

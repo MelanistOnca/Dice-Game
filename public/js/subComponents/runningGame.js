@@ -13,15 +13,6 @@ export default class RunningGame extends React.Component{
 
   render(){
 
-
-
-
-    //propsify
-
-
-
-    //props-ification
-
     let progCheck;
     if(!this.props.gameFinished){
       progCheck =

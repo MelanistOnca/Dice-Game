@@ -10,15 +10,13 @@ import PredictionSelector from './playerPredictionSelector'
 export default class SinglePlayer extends React.Component {
 
 
-// now i need to add the dice value selection here.
+
   render() {
-    //screwing up something here, update is not working correctly?
 
     return(
       <div
         id = {`${this.props.id}PlayerContainer`}
         className = "singlePlayer"
-
         >
         Make your pick, player number {this.props.playerNumber}
         <PredictionSelector

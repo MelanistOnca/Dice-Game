@@ -6,17 +6,12 @@ import $ from 'jquery';
 // components
 import Test from './test';
 import AllPlayers from './subComponents/allPlayers';
-
 import RollButton from './subComponents/rollButton';
 import ConfigSettings from './subComponents/configSettings';
-
-// import Scoreboard from './subComponents/scoreboard';
 import Victory from './subComponents/victory';
 import PlayAgain from './subComponents/playAgain';
-// import GameSetup from './subComponents/gameSetup';
-
 import LiveGame from './subComponents/liveGame';
-// import FinishedGame from './subComponents/finishedGame';
+
 
 export default class Site extends React.Component {
 
@@ -27,15 +22,15 @@ export default class Site extends React.Component {
       selectedPlayerValue: 1,
       selectedDiceSidesValue: 2,
       playerPredictedValue: [1,1,1,1,1],
-      // playerPredictedValue: [0,0,0,0,0],
-      diceResult: -1, //not 0 so that initial state checks dont register "wins". may not be necessary depending on how logic checks are made, which haven't been designed yet.
+      diceResult: 0,
       playerWins: [0,0,0,0,0],
-      //i want to have the player number determined dynamically, but running into some issues trying to implement that. since dropdown for player number tops out at 5, i'm setting the array lengths here.
+      //i want to have the player number determined dynamically, but running into some issues trying to implement that. since dropdown for player number tops out at 5, i'm setting the array lengths here. //this is a feature i'm probably not going to implement, really 5 people is plenty.
       winCondition: 1,
       gameFinished: false,
       gameRestarted: false
     }
     //a whole lot of this binding. there has to be a way to group this into a single line or something, right?
+    //look in to this for future update.
     this.updateGameStart = this.updateGameStart.bind(this)
     this.updateNumberOfPlayers = this.updateNumberOfPlayers.bind(this);
     this.updateSides = this.updateSides.bind(this);
@@ -47,7 +42,6 @@ export default class Site extends React.Component {
     this.updateGameFinish = this.updateGameFinish.bind(this);
   }
 
-  // let val = event.target.value; //can i use this to replace event.target.value in all the functions below? test later. scoping may be problematic.
 
   updateGameStart(event){
     this.setState(
@@ -64,7 +58,7 @@ export default class Site extends React.Component {
     )
   }
   resetGameToStart(event){
-    console.log('resetGameToStart was called.');
+
     this.setState(
       {
         gameStarted: false,
@@ -74,8 +68,7 @@ export default class Site extends React.Component {
     )
   }
   updateNumberOfPlayers(event){
-    // console.log(event.target,'was event.target in site.js');
-    // console.log(event.target.value,'was event.target.value in site.js');
+
 
     this.setState(
       {
@@ -101,10 +94,7 @@ export default class Site extends React.Component {
   }
 
   updatePlayerPredictedValue(playerArrayNumber, event){
-    // console.log(event,'event');
-    // console.log(playerArrayNumber, 'was playerArrayNumber in updatePPV in site.js');
-    // console.log(this.state,'this.state in updatePPV in site.js');
-    // let playerPredictedValueTemp=[];
+
     this.state.playerPredictedValue[playerArrayNumber]=parseInt(event.target.value);
 
     this.setState(
@@ -123,17 +113,7 @@ export default class Site extends React.Component {
   }
 
   render() {
-    // console.log(this.state.winCondition,'was this.state.winCondition in site.js');
-    // console.log(this.updateWinCondition,'was this.updateWinCondition in site.js');
-    // console.log(this.state, 'was this.state in site.js');
 
-    //above <AllPlayers/>
-
-
-    //below <Victory/>
-    // <PlayAgain
-    //   {/* maybe this should just be a modified Button? */}
-    //   />
 
     return (
       <div

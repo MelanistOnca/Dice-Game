@@ -6,14 +6,8 @@ import SinglePlayer from './singlePlayer';
 
 export default class AllPlayers extends React.Component {
 
-
-// NEED TO MAKE THIS CONTINGENT ON GAME HAVING BEEN STARTED
-
-
-
   //render loop inspired by http://stackoverflow.com/a/22877049
   render() {
-      // console.log(this.props.playerPredictedValue,'was this.props.playerPredictedValue in allPlayers.js');//undefined. of course it would be, since no on predicted anything.
     let allPlayers = [];
     let numPlayers = parseInt(this.props.playersNumber); //this is determined by the dropdown selection.
     for (let i = 0; i < numPlayers; i++){
@@ -40,7 +34,7 @@ export default class AllPlayers extends React.Component {
       gamestatus = <div></div>
     }
 
-    //need to play with styling here. should be centered even with 1 player. currently left-aligned.
+
     return(
 
 
