@@ -47,6 +47,7 @@ export default class LiveGame extends React.Component{
           playerWins = {this.props.playerWins}
           selectedPlayerValue = {this.props.selectedPlayerValue}
           gameFinished = {this.props.gameFinished}
+          newLine = { "\n"}
           />
       </div>
     } else{

@@ -20,12 +20,14 @@ export default class Result extends React.Component{
     } else {
       buffer = `a ${this.props.diceResult}.`
     }
-    
+
     return(
       <div
         id = "diceResultContainer"
         >
         The dice rolled {buffer}
+        
+        <p></p>
       </div>
     )
   }

@@ -65,7 +65,7 @@ export default class Victory extends React.Component{
               key = {uniqueStamp}
               id = {uniqueStamp}
               message = { `Player ${i+1} wins!` }
-              newLine = { "\n"}
+              
               />
             <br />
             </span>
