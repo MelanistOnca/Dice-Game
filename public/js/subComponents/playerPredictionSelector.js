@@ -4,10 +4,25 @@ import $ from 'jquery';
 
 export default class PredictionSelector extends React.Component{
 
+  //EVENT BEING A DICKHEAD IN THE ONCHANGE IM TRYING TO PASS THROUGH. event doesn't seem to get passed to the updatePlayerPredictedValue in site.js
+
+  updatePPV(playerPredictedValue,event){
+
+    // console.log(this.props,'this.props in update PPV in PlayerPredictionSelector.js');
+    // let playerArrayNumber = (this.props.playerNumber)-1;
+    console.log(event, 'was event in updatePPV');
+    console.log(playerPredictedValue,'was playerPredictedValue in updatePPV');
+    // this.props.updatePlayerPredictedValue.bind(this,event,playerArrayNumber)
+    console.log(this.props,'was this.props in updatePPV');
+    this.props.updatePlayerPredictedValue();
+
+  }
+
   render(){
+    // console.log(this.props,'this.props in render in PlayerPredictionSelector.js');
 
 
-    let playerArrayNumber = this.props.playerNumber-1;
+
     let sides = parseInt(this.props.maxDiceSideNumber);
     let options = [];
 
@@ -24,14 +39,17 @@ export default class PredictionSelector extends React.Component{
       )
     }
 
-    
+
     let thisPlayerValue = this.props.playerPredictedValue[this.props.playerNumber-1]
+    let playerArrayNumber = (this.props.playerNumber)-1;
+    // console.log(this,'this in PlayerPredictionSelector');
+    // onChange = {this.props.updatePlayerPredictedValue.bind(this,event,playerArrayNumber), this.updatePPV.bind(event,playerArrayNumber)}
 
     return(
       <div id={this.props.id}>
         <select
           value = {thisPlayerValue}
-          onChange = { this.props.updatePlayerPredictedValue.bind(event,playerArrayNumber)}
+          onChange = { this.updatePPV.bind(event,playerArrayNumber)}
           >
           {options}
         </select>

@@ -68,7 +68,7 @@ export default class Site extends React.Component {
     )
   }
   updateNumberOfPlayers(event){
-
+    // console.log(event, 'was event in updateNumberOfPlayers in site.js');
 
     this.setState(
       {
@@ -93,9 +93,16 @@ export default class Site extends React.Component {
     )
   }
 
-  updatePlayerPredictedValue(playerArrayNumber, event){
+  updatePlayerPredictedValue(event,playerArrayNumber){
+    // console.log(playerArrayNumber,'was playerArrayNumber in same');
+    console.log(event,'was event in updatePPV in site.js');
+    console.log(event.target,'was event.target in same');
+    console.log(event.target.value,'was event.target.value in same'); //the first run through this appears to be targeting startButton. WHY!?!?!?!?!!? second functions as expected.
+    //see if we can wrangle it using this somehow.
+    // console.log(this,'this in same'); the this is Site, which makes sense from the constructor bindings.
+    // if( !event ) event = window.event; //from stackexchange
 
-    this.state.playerPredictedValue[playerArrayNumber]=parseInt(event.target.value);
+    this.state.playerPredictedValue[playerArrayNumber] = parseInt(event.target.value);
 
     this.setState(
       {
